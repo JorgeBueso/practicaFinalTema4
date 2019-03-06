@@ -23,7 +23,7 @@ public class ConexionBBDD
         conn1 = null;
         try 
         {
-            String url1 = "jdbc:mysql://localhost:3306/libreria";
+            String url1 = "jdbc:mysql://localhost:3306/libreria?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
             String user = "root";
             String password = "root";
             
@@ -226,7 +226,7 @@ public class ConexionBBDD
   //Funciones para tabla libros
       
     
-    public void InsertarDatosLibros(String ISBN,String titulo,String autor, String NumPag,String anno_publicacion,
+    public void InsertarDatosLibros(String ISBN,String titulo,String autor, String NumPag,String Stock,
                                     String edicion,String genero,String tipoCubierta, String idioma)
     {
         try
@@ -234,7 +234,7 @@ public class ConexionBBDD
             conn1.setAutoCommit(false);
             Statement sta = conn1.createStatement();
             
-            sta.executeUpdate("INSERT INTO libro VALUES('" + ISBN + "', '" + titulo + "', '" + autor + "', '" + NumPag + "', '" + anno_publicacion +"' , '"
+            sta.executeUpdate("INSERT INTO libro VALUES('" + ISBN + "', '" + titulo + "', '"+ Stock +"', '" + autor + "', '" + NumPag  + "' , '"
                                                            + edicion + "' , '"+ genero + "' , '" + tipoCubierta +"' , '" + idioma + "')"); 
             
             conn1.commit();
@@ -257,14 +257,14 @@ public class ConexionBBDD
         
     }
     
-    public void ModificaLibro(String nuevoISBN,String nuevoTitulo,String nuevoAutor,String nuevaPag,String nuevoAnno,String nuevaEdicion,String nuevoGenero,String nuevaCubierta,String nuevoIdioma)
+    public void ModificaLibro(String nuevoISBN,String nuevoTitulo,String nuevoAutor,String nuevaPag,String nuevoStock,String nuevaEdicion,String nuevoGenero,String nuevaCubierta,String nuevoIdioma)
     {
         try
         {
             conn1.setAutoCommit(false);
             Statement sta = conn1.createStatement();
                                         
-                sta.executeUpdate ("UPDATE LIBRO SET titulo = '"+ nuevoTitulo +"' , autor = '"+ nuevoAutor + "', NumPag = '"+ nuevaPag + " ', Anno_publicacion= '"+ nuevoAnno +"', edicion = '"+nuevaEdicion+"', genero= '"+nuevoGenero+"' ,tipoCubierta = '"+nuevaCubierta+"' , idioma= '"+nuevoIdioma +"' WHERE ISBN = '" + nuevoISBN + "'" );
+                sta.executeUpdate ("UPDATE LIBRO SET titulo = '"+ nuevoTitulo +"' , autor = '"+ nuevoAutor + "',NumPag = '"+ nuevaPag + " ', stock = '"+ nuevoStock +"', edicion = '"+nuevaEdicion+"', genero= '"+nuevoGenero+"' ,tipoCubierta = '"+nuevaCubierta+"' , idioma= '"+nuevoIdioma +"' WHERE ISBN = '" + nuevoISBN + "'" );
             
                                            
             conn1.commit();
@@ -319,7 +319,7 @@ public class ConexionBBDD
         }
     }
    
-    //esta funcion la he demodificar , no hace nada
+    //esta funcion la he de modificar , no hace nada
     public DefaultTableModel BuscaLibro(String ISBN)
     {
         DefaultTableModel modelo = new DefaultTableModel();
@@ -375,7 +375,8 @@ public class ConexionBBDD
             conn1.setAutoCommit(false);
             Statement sta = conn1.createStatement();
             
-            sta.executeUpdate("INSERT INTO libro VALUES('" + id_libro + "', '" + precio + "', '" + cantidad + "', '" + libro + "', '" + dni +"' , '"
+            sta.executeUpdate("INSERT INTO compra ( `id_libro`, `precio`, `cantidad`, `libro`, `dni`, `fecha_compra`)"
+                            + " VALUES('" + id_libro + "', '" + precio + "', '" + cantidad + "', '" + libro + "', '" + dni +"' , '"
                                                            + fecha_compra + "')"); 
             
             conn1.commit();
@@ -396,6 +397,68 @@ public class ConexionBBDD
             ex.printStackTrace();
         }
    } 
+   
+   public void ModificaCompra(String id_compra,String id_libro,String precio,String cantidad,String libro,String dni,String fecha_compra)
+    {
+        try
+        {
+            conn1.setAutoCommit(false);
+            Statement sta = conn1.createStatement();
+            String query=  ("UPDATE compra SET id_libro = '"+ id_libro +"' , precio = '"+ precio + "', cantidad = '"+ cantidad + "', libro= '"+ libro +"', dni = '"+ dni + "', fecha_compra = '"+ fecha_compra  +"' WHERE id_compra = '" + id_compra + "'");                     
+            sta.executeUpdate (query);
+            System.out.println(query);
+                                           
+            conn1.commit();
+            
+        }catch(SQLException ex)
+        {
+            System.err.println("ERROR: al modificar");
+            try
+            {
+                if(conn1!=null)
+                {
+                    conn1.rollback();
+                }
+            }catch(SQLException se2)
+            {
+                se2.printStackTrace();
+            }
+            ex.printStackTrace();
+        }
+    }
+   
+   public void EliminaCompra(String id_compra)
+    {      
+        try
+        {
+        //pongo el autocommit a false, por si falla que no me de error el callback. 
+            conn1.setAutoCommit(false);
+            Statement sta = conn1.createStatement();
+            String query = "DELETE FROM compra WHERE id_compra = " + id_compra ;
+            sta.execute(query);
+            System.out.println(query);
+            conn1.commit();
+            sta.close();
+            
+            System.out.println("se ha ELIMINADO correctamente");
+        }
+        catch(Exception ex)
+        {
+             System.err.println("ERROR:al hacer un eliminar"); 
+            try
+            { 
+                if(conn1!=null)
+                {
+                    conn1.rollback();
+                }
+            }
+            catch(SQLException se2)
+            {
+                se2.printStackTrace();
+            } 
+            ex.printStackTrace();
+        }
+    }
     
 
 }

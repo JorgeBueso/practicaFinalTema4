@@ -51,7 +51,9 @@ public class Formulario extends javax.swing.JFrame {
                     jTextFieldApellidos.setText(jTableClientes.getValueAt(jTableClientes.getSelectedRow(),2).toString());
                     jTextFieldCorreo.setText(jTableClientes.getValueAt(jTableClientes.getSelectedRow(),3).toString());
                     jTextFieldTelefono.setText(jTableClientes.getValueAt(jTableClientes.getSelectedRow(),4).toString());
-         
+                
+                //para la sección de 
+                    jTextFieldCompra_Dni.setText(jTableClientes.getValueAt(jTableClientes.getSelectedRow(),0).toString());
                 
              }
             }
@@ -68,14 +70,39 @@ public class Formulario extends javax.swing.JFrame {
                 //para que me ponga los datos en los jtextField
                     jTextFieldISBN.setText(jTableLibro.getValueAt(jTableLibro.getSelectedRow(),0).toString());
                     jTextFieldTitulo.setText(jTableLibro.getValueAt(jTableLibro.getSelectedRow(),1).toString());
-                    jTextFieldAutor.setText(jTableLibro.getValueAt(jTableLibro.getSelectedRow(),2).toString());
-                    jTextFieldNumPag.setText(jTableLibro.getValueAt(jTableLibro.getSelectedRow(),3).toString());
-                    jTextFieldAnnoPubli.setText(jTableLibro.getValueAt(jTableLibro.getSelectedRow(),4).toString());
+                    jTextFieldStock.setText(jTableLibro.getValueAt(jTableLibro.getSelectedRow(),2).toString());
+                    jTextFieldAutor.setText(jTableLibro.getValueAt(jTableLibro.getSelectedRow(),3).toString());
+                    jTextFieldNumPag.setText(jTableLibro.getValueAt(jTableLibro.getSelectedRow(),4).toString());                    
                     jTextFieldEdicion.setText(jTableLibro.getValueAt(jTableLibro.getSelectedRow(),5).toString());
                     jTextFieldGenero.setText(jTableLibro.getValueAt(jTableLibro.getSelectedRow(),6).toString());
                     jTextFieldTipoCubierta.setText(jTableLibro.getValueAt(jTableLibro.getSelectedRow(),7).toString());
                     jTextFieldIdioma.setText(jTableLibro.getValueAt(jTableLibro.getSelectedRow(),8).toString());
                 
+                //en al seccion compra
+                    jTextFieldCompra_ISBN.setText(jTableLibro.getValueAt(jTableLibro.getSelectedRow(),0).toString());
+                    jTextFieldCompraLibro.setText(jTableLibro.getValueAt(jTableLibro.getSelectedRow(),1).toString());
+                
+             }
+            }
+       } );
+       
+       jTableCompra.addMouseListener(new MouseAdapter() 
+       {
+          public void mousePressed(MouseEvent Mouse_evt)
+            {
+             
+             if(Mouse_evt.getClickCount() == 1)
+             {
+
+                //para que me ponga los datos en los jtextField
+                    jTextFieldId_compra.setText(jTableCompra.getValueAt(jTableCompra.getSelectedRow(),0).toString());
+                    jTextFieldCompra_ISBN.setText(jTableCompra.getValueAt(jTableCompra.getSelectedRow(),1).toString());
+                    jTextFieldCompra_precio.setText(jTableCompra.getValueAt(jTableCompra.getSelectedRow(),2).toString());
+                    jTextFieldCompraCantidad.setText(jTableCompra.getValueAt(jTableCompra.getSelectedRow(),3).toString());
+                    jTextFieldCompraLibro.setText(jTableCompra.getValueAt(jTableCompra.getSelectedRow(),4).toString());
+                    jTextFieldCompra_Dni.setText(jTableCompra.getValueAt(jTableCompra.getSelectedRow(),5).toString());
+                    jTextFieldFecha_compra.setText(jTableCompra.getValueAt(jTableCompra.getSelectedRow(),6).toString());
+                                  
              }
             }
        } );
@@ -88,6 +115,7 @@ public class Formulario extends javax.swing.JFrame {
         //Tablas       
             jScrollPaneClientes.setVisible(false);
             jScrollPaneLibro.setVisible(false);
+            jScrollPaneCompra.setVisible(false);
         
         //Botones        
             //Clientes
@@ -103,6 +131,13 @@ public class Formulario extends javax.swing.JFrame {
                 jButtonMostrarLibro.setVisible(false);
                 jButtonInsertaLibro.setVisible(false);
                 jButtonModificarLibro.setVisible(false);
+            
+            //Compra
+                jButtonBuscarCompra.setVisible(false);
+                jButtonEliminarCompra.setVisible(false);
+                jButtonMostrarCompra.setVisible(false);
+                jButtonInsertaCompra.setVisible(false);
+                jButtonModificarCompra.setVisible(false);
 
         //Labels        
             //Clientes
@@ -116,12 +151,21 @@ public class Formulario extends javax.swing.JFrame {
                 jLabelISBN.setVisible(false);
                 jLabelAutor.setVisible(false);
                 jLabelIdioma.setVisible(false);
-                jLabelAnnoPubli.setVisible(false);
+                jLabelStock.setVisible(false);
                 jLabelEdicion.setVisible(false);  
                 jLabelTipoCubierta1.setVisible(false);
                 jLabelGenero.setVisible(false);
                 jLabelTitulo.setVisible(false);
                 jLabelNumPag.setVisible(false);
+            
+            //Compra
+                jLabelId_compra.setVisible(false);
+                jLabelCompra_Dni.setVisible(false);
+                jLabelCompra_ISBN.setVisible(false);
+                jLabelCompra_titulo.setVisible(false);
+                jLabelCompra_precio.setVisible(false); 
+                jLabelCantidad.setVisible(false);
+                jLabelFecha.setVisible(false); 
             
         //textField       
             //Clientes
@@ -134,17 +178,25 @@ public class Formulario extends javax.swing.JFrame {
                 jTextFieldISBN.setVisible(false);
                 jTextFieldAutor.setVisible(false);
                 jTextFieldEdicion.setVisible(false);
-                jTextFieldAnnoPubli.setVisible(false);
+                jTextFieldStock.setVisible(false);
                 jTextFieldIdioma.setVisible(false);  
                 jTextFieldTipoCubierta.setVisible(false);
                 jTextFieldTitulo.setVisible(false);
                 jTextFieldGenero.setVisible(false);
                 jTextFieldNumPag.setVisible(false);
-        
+            
+            //Compra
+                jTextFieldId_compra.setVisible(false);
+                jTextFieldCompra_ISBN.setVisible(false);
+                jTextFieldCompra_Dni.setVisible(false);
+                jTextFieldCompraLibro.setVisible(false);
+                jTextFieldCompraCantidad.setVisible(false);  
+                jTextFieldCompra_precio.setVisible(false);
+                jTextFieldFecha_compra.setVisible(false);
         
         //conexion
         jPanelColor.setBackground(new Color(213, 0, 0, 246));
-        botonConfiguracion.setText("activar la conexion");
+        botonConfiguracion.setText("desactivar la conexion");
     }
     
     public void mostrar()
@@ -153,6 +205,7 @@ public class Formulario extends javax.swing.JFrame {
         //Tablas       
             jScrollPaneClientes.setVisible(true);
             jScrollPaneLibro.setVisible(true);
+            jScrollPaneCompra.setVisible(true);
         
         //Botones        
             //Clientes
@@ -168,6 +221,13 @@ public class Formulario extends javax.swing.JFrame {
                 jButtonMostrarLibro.setVisible(true);
                 jButtonInsertaLibro.setVisible(true);
                 jButtonModificarLibro.setVisible(true);
+                
+            //Compra
+                jButtonBuscarCompra.setVisible(true);
+                jButtonEliminarCompra.setVisible(true);
+                jButtonMostrarCompra.setVisible(true);
+                jButtonInsertaCompra.setVisible(true);
+                jButtonModificarCompra.setVisible(true);
 
         //Labels        
             //Clientes
@@ -181,13 +241,23 @@ public class Formulario extends javax.swing.JFrame {
                 jLabelISBN.setVisible(true);
                 jLabelAutor.setVisible(true);
                 jLabelIdioma.setVisible(true);
-                jLabelAnnoPubli.setVisible(true);
+                jLabelStock.setVisible(true);
                 jLabelEdicion.setVisible(true);  
                 jLabelTipoCubierta1.setVisible(true);
                 jLabelGenero.setVisible(true);
                 jLabelTitulo.setVisible(true);
                 jLabelNumPag.setVisible(true);
             
+            //Compra
+                jLabelId_compra.setVisible(true);
+                jLabelCompra_Dni.setVisible(true);
+                jLabelCompra_ISBN.setVisible(true);
+                jLabelCompra_titulo.setVisible(true);
+                jLabelCompra_precio.setVisible(true); 
+                jLabelCantidad.setVisible(true);
+                jLabelFecha.setVisible(true); 
+                
+                
         //textField       
             //Clientes
                 jTextFieldApellidos.setVisible(true);
@@ -199,13 +269,21 @@ public class Formulario extends javax.swing.JFrame {
                 jTextFieldISBN.setVisible(true);
                 jTextFieldAutor.setVisible(true);
                 jTextFieldEdicion.setVisible(true);
-                jTextFieldAnnoPubli.setVisible(true);
+                jTextFieldStock.setVisible(true);
                 jTextFieldIdioma.setVisible(true);  
                 jTextFieldTipoCubierta.setVisible(true);
                 jTextFieldTitulo.setVisible(true);
                 jTextFieldGenero.setVisible(true);
                 jTextFieldNumPag.setVisible(true);
-                
+            
+            //Compra
+                jTextFieldId_compra.setVisible(true);
+                jTextFieldCompra_ISBN.setVisible(true);
+                jTextFieldCompra_Dni.setVisible(true);
+                jTextFieldCompraLibro.setVisible(true);
+                jTextFieldCompraCantidad.setVisible(true);  
+                jTextFieldCompra_precio.setVisible(true);
+                jTextFieldFecha_compra.setVisible(true);
         //conexion
         jPanelColor.setBackground(new Color(0, 0, 145, 123));
         botonConfiguracion.setText("activar la conexion");
@@ -255,8 +333,8 @@ public class Formulario extends javax.swing.JFrame {
         jTextFieldAutor = new javax.swing.JTextField();
         jLabelNumPag = new javax.swing.JLabel();
         jTextFieldNumPag = new javax.swing.JTextField();
-        jLabelAnnoPubli = new javax.swing.JLabel();
-        jTextFieldAnnoPubli = new javax.swing.JTextField();
+        jLabelStock = new javax.swing.JLabel();
+        jTextFieldStock = new javax.swing.JTextField();
         jLabelIdioma = new javax.swing.JLabel();
         jTextFieldIdioma = new javax.swing.JTextField();
         jLabelTitulo = new javax.swing.JLabel();
@@ -288,11 +366,15 @@ public class Formulario extends javax.swing.JFrame {
         jButtonMostrarCompra = new javax.swing.JButton();
         jButtonBuscarCompra = new javax.swing.JButton();
         jButtonInsertaCompra = new javax.swing.JButton();
+        jLabelId_compra = new javax.swing.JLabel();
+        jTextFieldId_compra = new javax.swing.JTextField();
         jButtonModificarCompra = new javax.swing.JButton();
         jButtonEliminarCompra = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jDesktopPaneClientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTableClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -307,30 +389,42 @@ public class Formulario extends javax.swing.JFrame {
         ));
         jScrollPaneClientes.setViewportView(jTableClientes);
 
+        jDesktopPaneClientes.add(jScrollPaneClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 173));
+
         jLabelDNI.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDNI.setText("Dni:");
+        jDesktopPaneClientes.add(jLabelDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 219, -1, -1));
 
         jTextFieldDni.setText("1");
+        jDesktopPaneClientes.add(jTextFieldDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 216, 210, -1));
 
         jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombre.setText("Nombre:");
+        jDesktopPaneClientes.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 257, -1, -1));
 
         jTextFieldNombre.setText("Nombre1");
+        jDesktopPaneClientes.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 254, 210, -1));
 
         jLabelApellido.setForeground(new java.awt.Color(255, 255, 255));
         jLabelApellido.setText("Apellido:");
+        jDesktopPaneClientes.add(jLabelApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 295, -1, -1));
 
         jTextFieldApellidos.setText("Apellido1");
+        jDesktopPaneClientes.add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 292, 210, -1));
 
         jLabelCorreo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCorreo.setText("Correo:");
+        jDesktopPaneClientes.add(jLabelCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 335, -1, -1));
 
         jTextFieldCorreo.setText("Correo1");
+        jDesktopPaneClientes.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 332, 210, -1));
 
         jLabelTelefono.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTelefono.setText("Telefono:");
+        jDesktopPaneClientes.add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 373, -1, -1));
 
         jTextFieldTelefono.setText("123214");
+        jDesktopPaneClientes.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 200, -1));
 
         jButtonBuscarCliente.setText("BuscarClientePorDni");
         jButtonBuscarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -338,6 +432,7 @@ public class Formulario extends javax.swing.JFrame {
                 jButtonBuscarClienteMousePressed(evt);
             }
         });
+        jDesktopPaneClientes.add(jButtonBuscarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 156, 75));
 
         jButtonInsertaClientes.setText("InsertarCliente");
         jButtonInsertaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -345,6 +440,7 @@ public class Formulario extends javax.swing.JFrame {
                 jButtonInsertaClientesMousePressed(evt);
             }
         });
+        jDesktopPaneClientes.add(jButtonInsertaClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, 156, 78));
 
         jButtonEliminarCliente.setText("EliminarCliente");
         jButtonEliminarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -352,6 +448,7 @@ public class Formulario extends javax.swing.JFrame {
                 jButtonEliminarClienteMousePressed(evt);
             }
         });
+        jDesktopPaneClientes.add(jButtonEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 418, 116, 80));
 
         jButtonMostrarClientes.setText("MostrarClientes");
         jButtonMostrarClientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -359,6 +456,7 @@ public class Formulario extends javax.swing.JFrame {
                 jButtonMostrarClientesMousePressed(evt);
             }
         });
+        jDesktopPaneClientes.add(jButtonMostrarClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 317, 156, 80));
 
         botonConfiguracion.setText("activarConexion");
         botonConfiguracion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -366,6 +464,7 @@ public class Formulario extends javax.swing.JFrame {
                 botonConfiguracionMousePressed(evt);
             }
         });
+        jDesktopPaneClientes.add(botonConfiguracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 317, 140, 80));
 
         javax.swing.GroupLayout jPanelColorLayout = new javax.swing.GroupLayout(jPanelColor);
         jPanelColor.setLayout(jPanelColorLayout);
@@ -378,127 +477,15 @@ public class Formulario extends javax.swing.JFrame {
             .addGap(0, 80, Short.MAX_VALUE)
         );
 
+        jDesktopPaneClientes.add(jPanelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 420, 140, -1));
+
         jButtonModificarClientes.setText("ModificarCliente");
         jButtonModificarClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButtonModificarClientesMousePressed(evt);
             }
         });
-
-        jDesktopPaneClientes.setLayer(jScrollPaneClientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jLabelDNI, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jTextFieldDni, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jLabelNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jTextFieldNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jLabelApellido, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jTextFieldApellidos, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jLabelCorreo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jTextFieldCorreo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jLabelTelefono, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jTextFieldTelefono, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jButtonBuscarCliente, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jButtonInsertaClientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jButtonEliminarCliente, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jButtonMostrarClientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(botonConfiguracion, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jPanelColor, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneClientes.setLayer(jButtonModificarClientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jDesktopPaneClientesLayout = new javax.swing.GroupLayout(jDesktopPaneClientes);
-        jDesktopPaneClientes.setLayout(jDesktopPaneClientesLayout);
-        jDesktopPaneClientesLayout.setHorizontalGroup(
-            jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPaneClientesLayout.createSequentialGroup()
-                .addGroup(jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPaneClientesLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneClientesLayout.createSequentialGroup()
-                                .addGroup(jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelCorreo)
-                                    .addComponent(jLabelTelefono))
-                                .addGap(9, 9, 9)
-                                .addGroup(jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jDesktopPaneClientesLayout.createSequentialGroup()
-                                        .addGap(5, 5, 5)
-                                        .addComponent(jTextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(15, 15, 15)
-                                .addComponent(jButtonMostrarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneClientesLayout.createSequentialGroup()
-                                .addGroup(jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelDNI)
-                                    .addComponent(jLabelNombre)
-                                    .addComponent(jLabelApellido))
-                                .addGap(15, 15, 15)
-                                .addGroup(jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldDni, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(14, 14, 14)
-                                .addComponent(jButtonBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jDesktopPaneClientesLayout.createSequentialGroup()
-                                .addComponent(jButtonEliminarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(14, 14, 14)
-                                .addComponent(jButtonModificarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(jButtonInsertaClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                        .addGroup(jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanelColor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(botonConfiguracion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
-                    .addComponent(jScrollPaneClientes))
-                .addContainerGap())
-        );
-        jDesktopPaneClientesLayout.setVerticalGroup(
-            jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPaneClientesLayout.createSequentialGroup()
-                .addComponent(jScrollPaneClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPaneClientesLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPaneClientesLayout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabelDNI)
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabelNombre)
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabelApellido))
-                            .addGroup(jDesktopPaneClientesLayout.createSequentialGroup()
-                                .addComponent(jTextFieldDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jDesktopPaneClientesLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jButtonBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(5, 5, 5)
-                .addGroup(jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPaneClientesLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelCorreo)
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabelTelefono))
-                    .addGroup(jDesktopPaneClientesLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jTextFieldCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonMostrarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(botonConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21)
-                .addGroup(jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonEliminarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jDesktopPaneClientesLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addGroup(jDesktopPaneClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonModificarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonInsertaClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanelColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-        );
+        jDesktopPaneClientes.add(jButtonModificarClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 130, 78));
 
         jTabbedPane1.addTab("Clientes", jDesktopPaneClientes);
 
@@ -535,10 +522,10 @@ public class Formulario extends javax.swing.JFrame {
 
         jTextFieldNumPag.setText("1234");
 
-        jLabelAnnoPubli.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelAnnoPubli.setText("Pubicado en:");
+        jLabelStock.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelStock.setText("En Stock:");
 
-        jTextFieldAnnoPubli.setText("2018");
+        jTextFieldStock.setText("1");
 
         jLabelIdioma.setForeground(new java.awt.Color(255, 255, 255));
         jLabelIdioma.setText("Idioma:");
@@ -604,8 +591,8 @@ public class Formulario extends javax.swing.JFrame {
         jDesktopPaneLibro.setLayer(jTextFieldAutor, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneLibro.setLayer(jLabelNumPag, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneLibro.setLayer(jTextFieldNumPag, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneLibro.setLayer(jLabelAnnoPubli, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneLibro.setLayer(jTextFieldAnnoPubli, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneLibro.setLayer(jLabelStock, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneLibro.setLayer(jTextFieldStock, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneLibro.setLayer(jLabelIdioma, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneLibro.setLayer(jTextFieldIdioma, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneLibro.setLayer(jLabelTitulo, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -657,9 +644,9 @@ public class Formulario extends javax.swing.JFrame {
                                             .addComponent(jTextFieldIdioma)
                                             .addComponent(jTextFieldEdicion))
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLabelAnnoPubli)
+                                        .addComponent(jLabelStock)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextFieldAnnoPubli, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jTextFieldStock, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jDesktopPaneLibroLayout.createSequentialGroup()
                                 .addGap(4, 4, 4)
@@ -686,7 +673,7 @@ public class Formulario extends javax.swing.JFrame {
         jDesktopPaneLibroLayout.setVerticalGroup(
             jDesktopPaneLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneLibroLayout.createSequentialGroup()
-                .addContainerGap(234, Short.MAX_VALUE)
+                .addContainerGap(270, Short.MAX_VALUE)
                 .addGroup(jDesktopPaneLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPaneLibroLayout.createSequentialGroup()
                         .addGroup(jDesktopPaneLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -715,8 +702,8 @@ public class Formulario extends javax.swing.JFrame {
                             .addComponent(jTextFieldTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelTitulo)))
                     .addGroup(jDesktopPaneLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldAnnoPubli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelAnnoPubli))
+                        .addComponent(jTextFieldStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelStock))
                     .addGroup(jDesktopPaneLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabelIdioma)
                         .addComponent(jTextFieldIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -731,7 +718,7 @@ public class Formulario extends javax.swing.JFrame {
             .addGroup(jDesktopPaneLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jDesktopPaneLibroLayout.createSequentialGroup()
                     .addComponent(jScrollPaneLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(328, Short.MAX_VALUE)))
+                    .addContainerGap(364, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Libro", jDesktopPaneLibro);
@@ -752,62 +739,53 @@ public class Formulario extends javax.swing.JFrame {
         jLabelCompra_ISBN.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCompra_ISBN.setText("ISBN:");
 
-        jTextFieldCompra_ISBN.setText("dura");
-
         jLabelCantidad.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCantidad.setText("Cantidad:");
-
-        jTextFieldCompraCantidad.setText("2");
 
         jLabelCompra_precio.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCompra_precio.setText("Precio:");
 
-        jTextFieldCompra_precio.setText("14");
-
         jLabelCompra_Dni.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelCompra_Dni.setText("Idioma:");
-
-        jTextFieldCompra_Dni.setText("idioma1");
+        jLabelCompra_Dni.setText("Dni:");
 
         jLabelFecha.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelFecha.setText("Titulo:");
-
-        jTextFieldFecha_compra.setText("2018");
+        jLabelFecha.setText("Fecha:");
 
         jLabelCompra_titulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCompra_titulo.setText("Titulo_Libro:");
 
-        jTextFieldCompraLibro.setText("titulo1");
-
-        jButtonMostrarCompra.setText("MostrarClientes");
+        jButtonMostrarCompra.setText("MostrarCompras");
         jButtonMostrarCompra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButtonMostrarCompraMousePressed(evt);
             }
         });
 
-        jButtonBuscarCompra.setText("BuscarCliente");
+        jButtonBuscarCompra.setText("BuscarCompra");
         jButtonBuscarCompra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButtonBuscarCompraMousePressed(evt);
             }
         });
 
-        jButtonInsertaCompra.setText("InsertarClientes");
+        jButtonInsertaCompra.setText("InsertarCompra");
         jButtonInsertaCompra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButtonInsertaCompraMousePressed(evt);
             }
         });
 
-        jButtonModificarCompra.setText("ModificarClientes");
+        jLabelId_compra.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelId_compra.setText("Id_compra:");
+
+        jButtonModificarCompra.setText("ModificarCompra");
         jButtonModificarCompra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButtonModificarCompraMousePressed(evt);
             }
         });
 
-        jButtonEliminarCompra.setText("EliminarCliente");
+        jButtonEliminarCompra.setText("EliminarCompra");
         jButtonEliminarCompra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButtonEliminarCompraMousePressed(evt);
@@ -830,6 +808,8 @@ public class Formulario extends javax.swing.JFrame {
         jDesktopPaneCompra.setLayer(jButtonMostrarCompra, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneCompra.setLayer(jButtonBuscarCompra, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneCompra.setLayer(jButtonInsertaCompra, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneCompra.setLayer(jLabelId_compra, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneCompra.setLayer(jTextFieldId_compra, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneCompra.setLayer(jButtonModificarCompra, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneCompra.setLayer(jButtonEliminarCompra, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -850,17 +830,9 @@ public class Formulario extends javax.swing.JFrame {
                                 .addComponent(jLabelCompra_precio)
                                 .addGap(47, 47, 47)
                                 .addComponent(jTextFieldCompra_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButtonMostrarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonMostrarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jDesktopPaneCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPaneCompraLayout.createSequentialGroup()
-                                .addComponent(jButtonBuscarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButtonInsertaCompra)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButtonModificarCompra)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButtonEliminarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jDesktopPaneCompraLayout.createSequentialGroup()
                                 .addGroup(jDesktopPaneCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelCompra_titulo)
@@ -870,14 +842,24 @@ public class Formulario extends javax.swing.JFrame {
                                 .addGroup(jDesktopPaneCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jTextFieldFecha_compra)
                                     .addComponent(jTextFieldCompraLibro)
-                                    .addComponent(jTextFieldCompra_Dni, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)))))
+                                    .addComponent(jTextFieldCompra_Dni, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)))
+                            .addGroup(jDesktopPaneCompraLayout.createSequentialGroup()
+                                .addComponent(jButtonBuscarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonInsertaCompra))))
                     .addGroup(jDesktopPaneCompraLayout.createSequentialGroup()
                         .addComponent(jLabelCompra_ISBN)
                         .addGap(41, 41, 41)
                         .addComponent(jTextFieldCompra_ISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addGroup(jDesktopPaneCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldId_compra, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                    .addComponent(jButtonEliminarCompra, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                    .addComponent(jLabelId_compra)
+                    .addComponent(jButtonModificarCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
             .addGroup(jDesktopPaneCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPaneCompra, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE))
+                .addComponent(jScrollPaneCompra, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE))
         );
         jDesktopPaneCompraLayout.setVerticalGroup(
             jDesktopPaneCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -895,35 +877,39 @@ public class Formulario extends javax.swing.JFrame {
                             .addComponent(jTextFieldCompraCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelCompra_titulo)
                             .addComponent(jTextFieldCompraLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
+                        .addGap(52, 52, 52)
                         .addGroup(jDesktopPaneCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldCompra_ISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelCompra_ISBN)))
+                            .addComponent(jLabelCompra_ISBN))
+                        .addGap(44, 44, 44)
+                        .addGroup(jDesktopPaneCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonMostrarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonBuscarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonInsertaCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jDesktopPaneCompraLayout.createSequentialGroup()
                         .addGroup(jDesktopPaneCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelCompra_Dni)
-                            .addComponent(jTextFieldCompra_Dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldCompra_Dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelId_compra))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jDesktopPaneCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldFecha_compra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelFecha))))
-                .addGap(36, 36, 36)
-                .addGroup(jDesktopPaneCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonMostrarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonBuscarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonInsertaCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonModificarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonEliminarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelFecha)
+                            .addComponent(jTextFieldId_compra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonModificarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonEliminarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(19, 19, 19))
             .addGroup(jDesktopPaneCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jDesktopPaneCompraLayout.createSequentialGroup()
                     .addComponent(jScrollPaneCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(328, Short.MAX_VALUE)))
+                    .addGap(0, 364, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Compra", jDesktopPaneCompra);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1036,9 +1022,9 @@ public class Formulario extends javax.swing.JFrame {
             //para que me devuelva las columnas
             modelo.addColumn("ISBN");
             modelo.addColumn("titulo");
+            modelo.addColumn("stock");
             modelo.addColumn("autor");
             modelo.addColumn("NumPag");
-            modelo.addColumn("Anno_publicacion");
             modelo.addColumn("edicion");
             modelo.addColumn("genero");
             modelo.addColumn("tipoCubierta");
@@ -1069,15 +1055,15 @@ public class Formulario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonMostrarLibroMousePressed
 
     private void jButtonInsertaLibroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonInsertaLibroMousePressed
-        conector.InsertarDatosLibros(jTextFieldISBN.getText(), jTextFieldTipoCubierta.getText(), jTextFieldAutor.getText(), jTextFieldNumPag.getText(), jTextFieldAnnoPubli.getText(),
-                                     jTextFieldEdicion.getText(), jTextFieldGenero.getText(),jTextFieldTitulo.getText(),jTextFieldIdioma.getText());
+        conector.InsertarDatosLibros(jTextFieldISBN.getText(), jTextFieldTitulo.getText(), jTextFieldAutor.getText(), jTextFieldNumPag.getText(),jTextFieldStock.getText(),
+                                     jTextFieldEdicion.getText(), jTextFieldGenero.getText(),jTextFieldTipoCubierta.getText(),jTextFieldIdioma.getText());
     }//GEN-LAST:event_jButtonInsertaLibroMousePressed
 
     private void jButtonBuscarLibroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarLibroMousePressed
       //  conector.BuscaLibro(jTextFieldISBN.getText());
       try {
-            String _ISBN = jTextFieldISBN.getText();
-            String query ="SELECT * FROM libro WHERE ISBN like ?;";
+            String _ISBN = jTextFieldISBN.getText()+ "%";
+            String query ="SELECT * FROM libro WHERE ISBN like ? ;";
            
             PreparedStatement pst = conector.conn1.prepareStatement(query);
             pst.setString(1,_ISBN);
@@ -1130,7 +1116,7 @@ public class Formulario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBuscarLibroMousePressed
 
     private void jButtonModificarLibroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonModificarLibroMousePressed
-        conector.ModificaLibro(jTextFieldISBN.getText(), jTextFieldTipoCubierta.getText(), jTextFieldAutor.getText(),jTextFieldNumPag.getText(),jTextFieldAnnoPubli.getText(),jTextFieldEdicion.getText(),jTextFieldGenero.getText(),jTextFieldTitulo.getText(),jTextFieldIdioma.getText());
+        conector.ModificaLibro(jTextFieldISBN.getText(), jTextFieldTitulo.getText(), jTextFieldAutor.getText(),jTextFieldNumPag.getText(),jTextFieldStock.getText(),jTextFieldEdicion.getText(),jTextFieldGenero.getText(),jTextFieldTipoCubierta.getText(),jTextFieldIdioma.getText());
     }//GEN-LAST:event_jButtonModificarLibroMousePressed
 
     private void jButtonEliminarLibroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarLibroMousePressed
@@ -1139,6 +1125,7 @@ public class Formulario extends javax.swing.JFrame {
 
     
     //Funciones para los botones de la tabla compra
+    
     private void jButtonMostrarCompraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMostrarCompraMousePressed
          try
         {
@@ -1188,19 +1175,71 @@ public class Formulario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonMostrarCompraMousePressed
 
     private void jButtonBuscarCompraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarCompraMousePressed
-        // TODO add your handling code here:
+           //  conector.BuscaLibro(jTextFieldISBN.getText());
+      try {
+            String _idCompra = jTextFieldId_compra.getText();
+            String query ="SELECT * FROM compra WHERE id_compra like ?;";
+           
+            PreparedStatement pst = conector.conn1.prepareStatement(query);
+            pst.setString(1,_idCompra);
+            
+            ResultSet rs = pst.executeQuery();
+           
+            ResultSetMetaData metaDatos = rs.getMetaData();
+
+            int numColumnas = metaDatos.getColumnCount();
+
+           DefaultTableModel modelo = new DefaultTableModel();
+
+            this.jTableCompra.setModel(modelo);
+
+            for (int i = 1; i <= numColumnas; i++)
+            {
+                modelo.addColumn(metaDatos.getColumnLabel(i));
+            }
+
+            
+           while(rs.next())
+            {
+              //declaro un array de tipo objeto el model 
+              //nececesitará  objetos
+              Object[] filas =  new Object[numColumnas];
+                //ahora hago un for para que me vaya dando 
+                //los resultados de todas las filas,
+                //e ir pasándole todos los datos a la variable filas.
+                for(int i= 0; i<numColumnas; i++)
+                {
+                    filas[i] = rs.getObject(i + 1);                    
+                }
+               
+            modelo.addRow(filas);
+                
+            }
+
+            rs.close();
+
+            pst.close();
+            
+
+        } catch (Exception e) 
+        {
+            
+             e.printStackTrace();
+          
+            
+        }
     }//GEN-LAST:event_jButtonBuscarCompraMousePressed
 
     private void jButtonInsertaCompraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonInsertaCompraMousePressed
-        conector.InsertarDatosCompra(jTextFieldCompraLibro.getText(),jTextFieldCompra_precio.getText(),jTextFieldCompraCantidad.getText(),jTextFieldCompraLibro.getText(),jTextFieldCompra_Dni.getText(),jTextFieldFecha_compra.getText());
+        conector.InsertarDatosCompra(jTextFieldCompra_ISBN.getText(),jTextFieldCompra_precio.getText(),jTextFieldCompraCantidad.getText(),jTextFieldCompraLibro.getText(),jTextFieldCompra_Dni.getText(),jTextFieldFecha_compra.getText());
     }//GEN-LAST:event_jButtonInsertaCompraMousePressed
 
     private void jButtonModificarCompraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonModificarCompraMousePressed
-        // TODO add your handling code here:
+        conector.ModificaCompra(jTextFieldId_compra.getText(), jTextFieldISBN.getText(), jTextFieldCompra_precio.getText(), jTextFieldCompraCantidad.getText(),jTextFieldCompraLibro.getText(), jTextFieldDni.getText(), jTextFieldFecha_compra.getText());
     }//GEN-LAST:event_jButtonModificarCompraMousePressed
 
     private void jButtonEliminarCompraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarCompraMousePressed
-        // TODO add your handling code here:
+        conector.EliminaCompra(jTextFieldId_compra.getText());
     }//GEN-LAST:event_jButtonEliminarCompraMousePressed
 
     /**
@@ -1260,7 +1299,6 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPaneClientes;
     private javax.swing.JDesktopPane jDesktopPaneCompra;
     private javax.swing.JDesktopPane jDesktopPaneLibro;
-    private javax.swing.JLabel jLabelAnnoPubli;
     private javax.swing.JLabel jLabelApellido;
     private javax.swing.JLabel jLabelAutor;
     private javax.swing.JLabel jLabelCantidad;
@@ -1274,9 +1312,11 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFecha;
     private javax.swing.JLabel jLabelGenero;
     private javax.swing.JLabel jLabelISBN;
+    private javax.swing.JLabel jLabelId_compra;
     private javax.swing.JLabel jLabelIdioma;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelNumPag;
+    private javax.swing.JLabel jLabelStock;
     private javax.swing.JLabel jLabelTelefono;
     private javax.swing.JLabel jLabelTipoCubierta1;
     private javax.swing.JLabel jLabelTitulo;
@@ -1288,7 +1328,6 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JTable jTableClientes;
     private javax.swing.JTable jTableCompra;
     private javax.swing.JTable jTableLibro;
-    private javax.swing.JTextField jTextFieldAnnoPubli;
     private javax.swing.JTextField jTextFieldApellidos;
     private javax.swing.JTextField jTextFieldAutor;
     private javax.swing.JTextField jTextFieldCompraCantidad;
@@ -1302,9 +1341,11 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldFecha_compra;
     private javax.swing.JTextField jTextFieldGenero;
     private javax.swing.JTextField jTextFieldISBN;
+    private javax.swing.JTextField jTextFieldId_compra;
     private javax.swing.JTextField jTextFieldIdioma;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldNumPag;
+    private javax.swing.JTextField jTextFieldStock;
     private javax.swing.JTextField jTextFieldTelefono;
     private javax.swing.JTextField jTextFieldTipoCubierta;
     private javax.swing.JTextField jTextFieldTitulo;
